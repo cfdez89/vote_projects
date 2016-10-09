@@ -1,0 +1,56 @@
+
+/* header */
+
+
+.header {
+  text-align: center;
+}
+
+.chat {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+
+/* footer */
+footer {
+    background-color: #222;
+    padding: 88px, 0px;
+    height: 430px;
+  
+}
+
+footer h4 {
+    color:#888;
+    font-size:  1.3em;
+}
+
+footer hr {
+    /*border: 1px solid red;*/
+    border-color: rgb(255, 255, 255, 0.1);
+    margin: 10px 0;
+}
+
+footer a {
+    display: block;
+    color:#777;
+    font-size:  0.9em;
+}
+
+footer a span {
+    font-weight: bold;
+    border-color: rgb(255, 255, 255, 0.3);
+}
+
+footer a:hover {
+  
+    color:white;
+}
+
+/* media query */
+@media (max-width: 639px){
+    .nav-desktop {
+        display: none;
+    }
+}
