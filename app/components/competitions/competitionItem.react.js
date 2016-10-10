@@ -7,12 +7,20 @@
 
 /** import libs dependencies */
 var React = require('react');
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link;
 
 /** import bootstrap component modules */
 var Thumbnail = require('react-bootstrap/lib/Thumbnail');
 var Image = require('react-bootstrap/lib/Image');
 var Col = require('react-bootstrap/lib/Col');
-var Button = require('react-bootstrap/lib/Button');
+var OverlayTrigger = require('react-bootstrap/lib/OverlayTrigger');
+var Tooltip = require('react-bootstrap/lib/Tooltip');
+
+
+const tooltip = (
+    <Tooltip id="tooltip"><strong>Go to competition for more details</strong></Tooltip>
+);
 
 /* competition item component */
 var CompetitionItem = React.createClass({
@@ -25,9 +33,11 @@ var CompetitionItem = React.createClass({
                     <h3>{this.props.data.title}</h3>
                     <p>Description: {this.props.data.description}</p>
                     <p>Start date at: {this.props.data.start_date}</p>
-                    <p>
-                        <Button bsStyle="primary">View projects</Button>
-                    </p>
+                    <OverlayTrigger placement="top" overlay={tooltip}>
+                        <span>
+                            <Link to={'/competitions/'+this.props.data.id}>View competition</Link>
+                        </span> 
+                    </OverlayTrigger> 
                 </Thumbnail>
              </Col>
         )

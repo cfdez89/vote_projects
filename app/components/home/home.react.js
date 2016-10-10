@@ -16,10 +16,7 @@ var Jumbotron = require('react-bootstrap/lib/Jumbotron');
 
 /** import components */
 var Competitions = require('../competitions/competitions.react');
-//{id:0,tag:'unpublished'}
-//{id:1, tag:'pending'}
-//{id:2,tag:'started'}
-//{id:3, tag:'finished'}
+
 
 /** home component */
 var Home = React.createClass({

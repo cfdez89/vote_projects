@@ -22,7 +22,9 @@ var VoteApp = React.createClass({
         return (
             <div>
                 <NavMenu/>
-                <Home/>
+                <div className="content">
+                    {this.props.children}
+                </div>
             </div>
         )
     }

@@ -2,7 +2,7 @@
  * App for emit vote to projects in Fundatec
  * By Carlos Fernandez Jimenez
  * Using ES5, React, McFly(flux), Bootstrap
- * This module is for show all compettions 
+ * This module is for show all projects by competition
  */
 
 /** import libs dependencies */
@@ -35,31 +35,35 @@ var _data = {
   ]
 };
 
-function getCompetitionsState(){
+function getProjectsState(){
   return _data.competitions;
 }
 
-/** competitions component */
-var Competitions = React.createClass({
-  getInitialState() {
-    return {
-        selectedTab: 1,
-        competitions: getCompetitionsState()
+/** projects component */
+var Projects = React.createClass({
+    getInitialState() {
+        return {
+            competitions: getProjectsState()
+        }
+    },
+    setStyles: function(){
+        return {
+            textAlign: 'center'
+        }
+    },
+    render() {
+        return (
+            <div style={this.setStyles()}>
+                <h1>Project</h1>
+                <br></br>
+                <h5>des</h5>
+                <hr></hr>
+                
+           
+            </div>
+        
+        );
     }
-  },
-  handleSelect(selectedTab) {
-    this.setState({selectedTab});
-  },
-  render() {
-    return (
-      <Tabs activeKey={this.state.selectedTab} onSelect={this.handleSelect} id="competitionsTabs">
-        <Tab eventKey={1} title="Unpublished"><CompetitionList data={this.state.competitions}/></Tab>
-        <Tab eventKey={2} title="Pending"><CompetitionList data={this.state.competitions}/></Tab>
-        <Tab eventKey={3} title="Started"><CompetitionList data={this.state.competitions}/></Tab>
-        <Tab eventKey={4} title="Finished"><CompetitionList data={this.state.competitions}/></Tab>
-      </Tabs>
-    );
-  }
 });
 
-module.exports = Competitions;
+module.exports = Projects;

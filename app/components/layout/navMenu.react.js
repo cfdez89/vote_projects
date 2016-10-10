@@ -9,11 +9,12 @@
 var React = require('react');
 var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
+var IndexLink = ReactRouter.IndexLink;
 
 /** import bootstrap component modules */
 var Navbar = require('react-bootstrap/lib/Navbar');
 var Nav = require('react-bootstrap/lib/Nav');
-var NavItem = require('react-bootstrap/lib/NavItem');
+//var NavItem = require('react-bootstrap/lib/NavItem');
 var NavDropdown = require('react-bootstrap/lib/NavDropdown');
 var MenuItem = require('react-bootstrap/lib/MenuItem');
 
@@ -34,10 +35,10 @@ var NavMenu = React.createClass({
                     </Navbar.Header>
                     <Navbar.Collapse>
                         <Nav pullRight>
-                            <NavItem eventKey={1} href="/">Home</NavItem>
-                            <NavItem eventKey={2} href="#">Sign up</NavItem>
-                            <NavItem eventKey={3} href="/login">Log in</NavItem>
-                            <NavItem eventKey={4} href="#">About</NavItem>
+                            <li><IndexLink to="/">Home</IndexLink></li>
+                            <li><Link to="/signup">Sign up</Link></li>
+                            <li><Link to="/login">Log in</Link></li>
+                            <li><Link to="/about">About</Link></li>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>

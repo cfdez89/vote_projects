@@ -12,19 +12,31 @@ var ReactRouter = require('react-router');
 var BrowserHistory = ReactRouter.browserHistory;
 var Route = ReactRouter.Route;
 var Router = ReactRouter.Router;
-
-
+var IndexRoute = ReactRouter.IndexRoute;
+var IndexLin = ReactRouter.IndexLin;
+    
 
 /** import component modules */
 var VoteApp = require('./components/layout/voteApp.react');
-var LogIn = require('./components/log_in/logIn');
+var Home = require('./components/home/home.react');
+var LogIn = require('./components/login/login.react');
+var SignUp = require('./components/signup/signup.react');
+var About = require('./components/about/about.react');
+var CompetitionDetail = require('./components/competitions/competitionDetail.react');
+var Projects = require('./components/projects/projects.react');
 
 /** app routes */
 
 ReactDOM.render((
     <Router history={BrowserHistory}> 
-        <Route path="/" component={VoteApp}></Route>
-        <Route path="/login" component={LogIn}></Route>
-       
+        <Route path="/" component={VoteApp}>
+            <IndexRoute component={Home}/>
+            <Route path="/login" component={LogIn}/>
+            <Route path="/signup" component={SignUp}/>
+            <Route path="/about" component={About}/>
+            <Route path="/competitions/:id" component={CompetitionDetail}>
+            <Route path="/competitions/:id/projects" component={Projects}/>
+            </Route> 
+        </Route>  
     </Router>
 ), document.getElementById('main'));
