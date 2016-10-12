@@ -10,7 +10,6 @@ var React = require('react');
 
 /** import bootstrap components module */
 var NavMenu = require('../layout/navMenu.react');
-var Home = require('../home/home.react');
 
 
 /** main controller view component */
