@@ -10,9 +10,10 @@ var Flux = new McFly();
 
 /** define global user data */
 var _user = {
-    username:'',
-    password:'',
-    confirmPassword:''
+    username: '',
+    password: '',
+    confirmPassword: '',
+    isValid: false
 }
 
 function getUser(){
@@ -27,6 +28,10 @@ function addUser(data){
     _user.confirmPassword = data.confirmPassword;
 }
 
+function updateUserStatus(status){
+    _user.isValid = status;
+}
+
 var UserStore = Flux.createStore({
     getUser: function(){
         return _user;
@@ -38,6 +43,10 @@ var UserStore = Flux.createStore({
             addUser(payload.data);
             UserStore.emitChange();
             break; 
+        case 'UPDATE_USER_STATUS':
+            updateUserStatus(payload.data);
+            UserStore.emitChange();
+            break;
     }
 });
 
