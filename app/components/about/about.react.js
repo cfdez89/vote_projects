@@ -9,11 +9,6 @@
 var React = require('react');
 
 /** import bootstrap component modules */
-var Col = require('react-bootstrap/lib/Col');
-var Form = require('react-bootstrap/lib/Form');
-var FormGroup = require('react-bootstrap/lib/FormGroup');
-var FormControl = require('react-bootstrap/lib/FormControl');
-var Button = require('react-bootstrap/lib/Button');
 var Label = require('react-bootstrap/lib/Label');
 
 
