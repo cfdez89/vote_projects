@@ -37,6 +37,9 @@ var SignUp = React.createClass({
         this.setState(getSignupState());
         console.log('actualizado');
         console.log(this.state);
+        if(this.state.isValid){
+            BrowserHistory.push('/login');
+        }
     },
     handleUsernameInput: function(event){
         event.preventDefault();
@@ -84,7 +87,7 @@ var SignUp = React.createClass({
         return (
             <div className="container-fluid">  
                 <div className="header small-12 medium-12 large-12 columns"> 
-                    <h1>SignUp</h1>
+                    <h1>Sign Up</h1>
                     <br></br>
                 </div>
                 <div>
