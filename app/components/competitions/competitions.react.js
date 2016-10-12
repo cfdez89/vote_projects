@@ -15,51 +15,43 @@ var CompetitionList = require('../competitions/competitionList.react');
 var Tabs = require('react-bootstrap/lib/Tabs');
 var Tab = require('react-bootstrap/lib/Tab');
 
-/** component global data */
-var _data = {
-  competitions: [
-    {
-      id:1,
-      title: 'Electronic Competition',
-      description: 'Find and share new ideas related to electronics.',
-      start_date: '03/11/2016',
-      picture: 'app/images/electronic.jpeg'
-    },
-    {
-      id:2,
-      title: 'Chemistry Competition',
-      description: 'Find and share new ideas related to chemistry.',
-      start_date: '12/12/2016',
-      picture: 'app/images/chemistry.jpeg'
-    }
-  ]
-};
+/** import modules */
+var CompetitionStore = require('../../stores/competitionStore');
 
 function getCompetitionsState(){
-  return _data.competitions;
+  return CompetitionStore.getCompetitions();
 }
 
 /** competitions component */
 var Competitions = React.createClass({
-  getInitialState() {
-    return {
-        selectedTab: 1,
-        competitions: getCompetitionsState()
+    mixins: [CompetitionStore.mixin],
+    getInitialState() {
+        return {
+            selectedTab: 1,
+            competitions: getCompetitionsState()
+        }
+    },
+    storeDidChange: function(){
+        this.setState({
+            competitions: getCompetitionsState()
+        });
+    },
+    handleSelect(selectedTab){
+      console.log(selectedTab);
+        this.setState({
+            selectedTab
+        });
+    },
+    render() {
+        return (
+            <Tabs activeKey={this.state.selectedTab} onSelect={this.handleSelect} id="competitionsTabs">
+                <Tab eventKey={1} title="Unpublished"><CompetitionList data={this.state.competitions}/></Tab>
+                <Tab eventKey={2} title="Pending"><CompetitionList data={this.state.competitions}/></Tab>
+                <Tab eventKey={3} title="Started"><CompetitionList data={this.state.competitions}/></Tab>
+                <Tab eventKey={4} title="Finished"><CompetitionList data={this.state.competitions}/></Tab>
+            </Tabs>
+        );
     }
-  },
-  handleSelect(selectedTab) {
-    this.setState({selectedTab});
-  },
-  render() {
-    return (
-      <Tabs activeKey={this.state.selectedTab} onSelect={this.handleSelect} id="competitionsTabs">
-        <Tab eventKey={1} title="Unpublished"><CompetitionList data={this.state.competitions}/></Tab>
-        <Tab eventKey={2} title="Pending"><CompetitionList data={this.state.competitions}/></Tab>
-        <Tab eventKey={3} title="Started"><CompetitionList data={this.state.competitions}/></Tab>
-        <Tab eventKey={4} title="Finished"><CompetitionList data={this.state.competitions}/></Tab>
-      </Tabs>
-    );
-  }
 });
 
 module.exports = Competitions;
