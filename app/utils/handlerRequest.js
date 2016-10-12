@@ -8,22 +8,23 @@
 /** import libs dependencies */
 var $ = require('jquery');
 
-var get =function(url){
-    $.get(url, function(response) {
-        return response;
+var get = function(url){
+    return $.ajax({
+        url: url,
+        method: 'GET'
     });
 }
 var post = function(url, data){
     return $.ajax({
-
         url: url,
         data: data,
-        method: 'POST'});
-    /*
+        method: 'POST'
+    });  
+}
+ /*
     $.get(url, data, function(response) {
         return response;
     });*/
-}
 /*
 $.get('/api/humans', function (result) {
       for (var key in result) {
