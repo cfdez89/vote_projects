@@ -18,6 +18,7 @@ var IndexLin = ReactRouter.IndexLin;
 
 /** import component modules */
 var VoteApp = require('./components/layout/voteApp.react');
+var NotFound = require('./components/layout/notFound.react');
 var Home = require('./components/home/home.react');
 var LogIn = require('./components/login/login.react');
 var SignUp = require('./components/signup/signup.react');
@@ -25,6 +26,10 @@ var About = require('./components/about/about.react');
 var CompetitionDetail = require('./components/competitions/competitionDetail.react');
 var Projects = require('./components/projects/projects.react');
 
+/** import modules */
+var CompetitionService = require('./services/competitionService');
+/** Load initial data from api */
+CompetitionService.getCompetitionData();
 /** app routes */
 
 ReactDOM.render((
@@ -35,8 +40,9 @@ ReactDOM.render((
             <Route path="/signup" component={SignUp}/>
             <Route path="/about" component={About}/>
             <Route path="/competitions/:id" component={CompetitionDetail}>
-            <Route path="/competitions/:id/projects" component={Projects}/>
+                <Route path="/competitions/:id/projects" component={Projects}/>
             </Route> 
+            <Route path="*" component={NotFound}/>
         </Route>  
     </Router>
 ), document.getElementById('main'));
