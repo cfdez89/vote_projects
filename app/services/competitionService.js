@@ -10,15 +10,16 @@
 var CompetitionActions = require('../actions/competitionActions');
 var Request = require('../utils/handlerRequest');
 
-var baseUrl = 'http://vote-api-cfdez89-1.c9users.io';
+var _baseUrl = 'http://vote-api-cfdez89-1.c9users.io';
 
 function getCompetitions(){
-    var url = baseUrl + '/api/competitions';
+    var url = _baseUrl + '/api/competitions';
     Request.get(url)
     .success(function(response){
+        var competitions = JSON.parse(response);
             //response.status? console.log("bueno"):console.log("malo") ;
-        for(var i=0; i<response.data.length; i++){
-            CompetitionActions.addCompetition(response.data[i]);
+        for(var i=0; i<competitions.data.length; i++){
+            CompetitionActions.addCompetition(competitions.data[i]);
             
         }
     })
