@@ -19,8 +19,8 @@ var Button = require('react-bootstrap/lib/Button');
 
 /** import modules */
 var UserStore = require('../../stores/userStore');
-var UserActions = require('../../actions/userActions');
-var request = require('../../utils/handlerRequest');
+var UserActions = require('../../actions/userActions'); 
+var UserService = require('../../services/userService');
 
 
 function getSignupState(){
@@ -35,11 +35,7 @@ var SignUp = React.createClass({
     },
     storeDidChange: function() {
         this.setState(getSignupState());
-        console.log('actualizado');
-        console.log(this.state);
-        if(this.state.isValid){
-            BrowserHistory.push('/login');
-        }
+        this.verifyUserCredentials(this.state.isValid);
     },
     handleUsernameInput: function(event){
         event.preventDefault();
@@ -52,36 +48,28 @@ var SignUp = React.createClass({
     handlePasswordInput: function(event){
         event.preventDefault();
         UserActions.addUser({
-                username: this.state.username,
-                password: event.target.value,
-                confirmPassword: this.state.confirmPassword
+            username: this.state.username,
+            password: event.target.value,
+            confirmPassword: this.state.confirmPassword
         });
     },
     handleConfirmPasswordInput: function(event){
         event.preventDefault();
         UserActions.addUser({
-                username: this.state.username,
-                password: this.state.password,
-                confirmPassword: event.target.value
+            username: this.state.username,
+            password: this.state.password,
+            confirmPassword: event.target.value
         });
     },
-    addUser: function(user){
-        console.log(request);
-
-        var url = 'http://vote-api-cfdez89-1.c9users.io/api/signup';
-        request.post(url, user).success(function(response) {
-             response.status? console.log("bueno"):console.log("malo") ;
-             BrowserHistory.push('/login'); 
-        });
-       
+    verifyUserCredentials: function(status){
+        status? BrowserHistory.push('/login'): console.log('Not valid');
     },
     signUp: function(event){
         event.preventDefault();
-        this.addUser(this.state);
-       
-        this.refs.username.value = '';
-        this.refs.password.value = '';
-        this.refs.confirmPassword.value = '';
+        UserService.addUserData(this.state);
+       // this.refs.username.value = '';
+        //this.refs.password.value = '';
+        //this.refs.confirmPassword.value = '';
     },
     render:function() {
         return (
@@ -101,6 +89,7 @@ var SignUp = React.createClass({
                                     ref="username" 
                                     defaultValue={this.state.username}
                                     onChange={this.handleUsernameInput} 
+                                    required={true}
                                 />
                                 <br></br>
                                 <input 
@@ -110,6 +99,7 @@ var SignUp = React.createClass({
                                     ref="password"
                                     defaultValue={this.state.password}
                                     onChange={this.handlePasswordInput} 
+                                    required={true}
                                 />
                                 <br></br>
                                 <input 
@@ -119,11 +109,13 @@ var SignUp = React.createClass({
                                     ref="confirmPassword"
                                     defaultValue={this.state.confirmPassword}
                                     onChange={this.handleConfirmPasswordInput} 
+                                    required={true}
                                     />
                                 <br></br>
                                 <Button 
                                     bsStyle="primary" 
-                                    onClick={this.signUp}>
+                                    onClick={this.signUp}
+                                    required={true}>
                                     Register
                                 </Button>
                                 <br></br>
