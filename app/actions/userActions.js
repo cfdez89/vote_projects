@@ -11,9 +11,15 @@ var Flux = new McFly();
 var UserActions = Flux.createActions({
     addUser: function(data){
        return {
-          actionType: "ADD_USER",
+          actionType: 'ADD_USER',
           data: data
        }
+    },
+    updateUserStatus: function(data){
+        return {
+            actionType: 'UPDATE_USER_STATUS',
+            data: data
+        }
     }
 });
 
