@@ -13,8 +13,6 @@ var IndexLink = ReactRouter.IndexLink;
 
 /** import bootstrap component modules */
 var Navbar = require('react-bootstrap/lib/Navbar');
-var Nav = require('react-bootstrap/lib/Nav');
-//var NavItem = require('react-bootstrap/lib/NavItem');
 var NavDropdown = require('react-bootstrap/lib/NavDropdown');
 var MenuItem = require('react-bootstrap/lib/MenuItem');
 
@@ -34,12 +32,12 @@ var NavMenu = React.createClass({
                         <Navbar.Toggle/>
                     </Navbar.Header>
                     <Navbar.Collapse>
-                        <Nav pullRight>
+                        <ul className="nav navbar-nav navbar-right">
                             <li><IndexLink to="/">Home</IndexLink></li>
                             <li><Link to="/signup">Sign up</Link></li>
                             <li><Link to="/login">Log in</Link></li>
                             <li><Link to="/about">About</Link></li>
-                        </Nav>
+                        </ul>
                     </Navbar.Collapse>
                 </Navbar>
             </nav>
