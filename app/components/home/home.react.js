@@ -30,7 +30,7 @@ var Home = React.createClass({
             textAlign: 'center'
         }
     },
-    render:function(){
+    render: function(){
         return (
             <div className="container-fluid">
                 <Jumbotron style={this.setStyles()}>

@@ -29,7 +29,7 @@ var Projects = require('./components/projects/projects.react');
 /** import modules */
 var CompetitionService = require('./services/competitionService');
 /** Load initial data from api */
-CompetitionService.getCompetitionData();
+CompetitionService.getCompetitionsData();
 /** app routes */
 
 ReactDOM.render((
