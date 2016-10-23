@@ -8,19 +8,43 @@
 /** import libs dependencies */
 var $ = require('jquery');
 
-var get = function(url){
+function getJson(url){
     return $.ajax({
         url: url,
         method: 'GET'
     });
 }
-var post = function(url, data){
+
+function postJson(url, data){
     return $.ajax({
         url: url,
         data: data,
         method: 'POST'
     });  
 }
+
+function putJson(url, data){
+    return $.ajax({
+        url: url,
+        data: data,
+        method: 'PUT'
+    });
+}
+
+function deleteJson(url){
+    return $.ajax({
+        url: url,
+        method: 'DELETE'
+    });
+}
+
+module.exports = {
+    get: getJson,
+    post: postJson,
+    put: putJson,
+    delete: deleteJson
+};
+
  /*
     $.get(url, data, function(response) {
         return response;
@@ -36,7 +60,3 @@ $.get('/api/humans', function (result) {
       db = this.state;
     }.bind(this));
     */
-module.exports = {
-    get: get,
-    post: post
-};
