@@ -11,7 +11,13 @@ var Flux = new McFly();
 var CompetitionActions = Flux.createActions({
     addCompetition: function(data){
        return {
-          actionType: "ADD_COMPETITION",
+          actionType: 'ADD_COMPETITION',
+          data: data
+       }
+    },
+    addSelectedCompetition: function(data){
+       return {
+          actionType: 'ADD_SELECTED_COMPETITION',
           data: data
        }
     }
