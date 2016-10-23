@@ -28,8 +28,25 @@ function getCompetitions(){
     });
 }
 
+function getCompetition(id){
+    var url = _baseUrl + '/api/competitions/' + id;
+    Request.get(url)
+    .success(function(response){
+        var competition = JSON.parse(response);
+            //response.status? console.log("bueno"):console.log("malo") ;
+             console.log('desde servicio');
+       console.log(competition);
+        CompetitionActions.addSelectedCompetition(competition.data);
+        
+    })
+    .fail(function(response){
+       console.log('error...'); 
+    });
+}
+
 
 
 module.exports = {
-    getCompetitionData: getCompetitions
+    getCompetitionsData: getCompetitions,
+    getCompetitionData: getCompetition
 };
