@@ -9,22 +9,35 @@
 var Flux = new McFly();
 
 /** define global competitions data */
-var _competitions = [];
+var _data = {
+    competitions: [],
+    selectedCompetition: {}
+};
+
 
 function getCompetitions(){
-    return _competitions; 
+    return _data.competitions; 
 }
 
 function addCompetition(data){
-    _competitions.push(data);
-    console.log('desde store');
-    console.log(_competitions);
+    _data.competitions.push(data);
+    console.log('desde store compe');
+    console.log(_data.competitions);
+}
+
+function addSelectedCompetition(data){
+    _data.selectedCompetition = data;
+    console.log('desde store selected');
+    console.log(_data.selectedCompetition);
 }
 
 
 var CompetitionStore = Flux.createStore({
     getCompetitions: function(){
-        return _competitions;
+        return _data.competitions;
+    },
+    getCompetition: function(){
+        return _data.selectedCompetition;
     }
 
 }, function(payload){
@@ -33,6 +46,10 @@ var CompetitionStore = Flux.createStore({
             addCompetition(payload.data);
             CompetitionStore.emitChange();
             break; 
+        case 'ADD_SELECTED_COMPETITION':
+            addSelectedCompetition(payload.data);
+            CompetitionStore.emitChange();
+            break;
     }
 });
 
