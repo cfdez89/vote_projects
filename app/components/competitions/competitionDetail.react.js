@@ -16,61 +16,55 @@ var Link = ReactRouter.Link;
 /** import bootstrap component modules */
 //var Tabs = require('react-bootstrap/lib/Tabs');
 //var Tab = require('react-bootstrap/lib/Tab');
+/** import modules */
+var CompetitionStore = require('../../stores/competitionStore');
+var CompetitionService = require('../../services/competitionService');
 
-/** component global data */
-var _data = {
-  competitions: [
-    {
-      id:1,
-      title: 'Electronic Competition',
-      description: 'Find and share new ideas related to electronics.',
-      start_date: '03/11/2016',
-      picture: 'app/images/electronic.jpeg'
-    },
-    {
-      id:2,
-      title: 'Chemistry Competition',
-      description: 'Find and share new ideas related to chemistry.',
-      start_date: '12/12/2016',
-      picture: 'app/images/chemistry.jpeg'
-    }
-  ]
-};
 
-function getProjectsState(){
-  return _data.competitions;
+
+function getCompetitionState(){
+  return CompetitionStore.getCompetition();
 }
 
 /** competition details component */
 var CompetitionDetail = React.createClass({
-    getInitialState() {
-        return {
-            competitions: getProjectsState()
-        }
+    getInitialState: function(){
+        return getCompetitionState();
+    },
+    componentDidMount: function(){
+        var _this  = this;
+        setInterval(CompetitionService.getCompetitionData(this.props.params), 2000);
+        console.log(getCompetitionState());
+       // _this.setState(getCompetitionState());
+        
+    },
+    storeDidChange: function() {
+        console.log(this.state);
+        this.setState(getCompetitionState());
     },
     setStyles: function(){
         return {
             textAlign: 'center'
         }
     },
-    render() {
+    render: function() {
         return (
             <div className="container-fluid">
                 <div style={this.setStyles()}>
-                    <h1>ti</h1>
+                    <h1>{this.state.name}</h1>
                     <hr></hr>
                     <br></br>
-                    <h4>descripcion aca</h4>
+                    <h4>{this.state.description}</h4>
                     <br></br>
-                    <p>Cantidad máxima de proyectos: 
-                    <br></br>Metodológia de evaluación de la competencia: 
-                    <br></br>Fecha de inicio de competencia: 
-                    <br></br>Fecha de fin de competencia: 
-                    <br></br>Fecha de incio de recepcion de votaciones: 
-                    <br></br>Fecha de fin de votaciones: </p>
+                    <p>Cantidad máxima de proyectos: {this.state.projects_limmit}
+                    <br></br>Metodológia de evaluación de la competencia: {this.state.evaluation_method}
+                    <br></br>Fecha de inicio de competencia: {this.state.start_date}
+                    <br></br>Fecha de fin de competencia: {this.state.end_date}
+                    <br></br>Fecha de incio de recepcion de votaciones: {this.state.vote_period_end}
+                    <br></br>Fecha de fin de votaciones: {this.state.vote_period_start}</p> 
                     <br></br>
                     <span>
-                        <Link to={'/competitions/'+'1'+'/projects' }>View projects</Link>
+                        <Link to={'/competitions/'+ this.props.params +'/projects' }>View projects</Link>
                     </span> 
                 </div>
                 <div className="content">
