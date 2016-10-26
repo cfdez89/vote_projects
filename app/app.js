@@ -17,8 +17,8 @@ var IndexLin = ReactRouter.IndexLin;
     
 
 /** import component modules */
-var VoteApp = require('./components/layout/voteApp.react');
-var NotFound = require('./components/layout/notFound.react');
+var Index = require('./components/layout/index.react');
+var NotFound = require('./components/notFound/notFound.react');
 var Home = require('./components/home/home.react');
 var LogIn = require('./components/login/login.react');
 var SignUp = require('./components/signup/signup.react');
@@ -35,7 +35,7 @@ CompetitionService.getCompetitionsData();
 
 ReactDOM.render((
     <Router history={BrowserHistory}> 
-        <Route path="/" component={VoteApp}>
+        <Route path="/" component={Index}>
             <IndexRoute component={Home}/>
             <Route path="/login" component={LogIn}/>
             <Route path="/signup" component={SignUp}/>

@@ -14,7 +14,7 @@ var Footer = require('../layout/footer.react');
 
 
 /** main controller view component */
-var VoteApp = React.createClass({
+var Index = React.createClass({
     getInitialState: function(){
         return {}
     },
@@ -31,4 +31,4 @@ var VoteApp = React.createClass({
     }
 });
 
-module.exports = VoteApp;
+module.exports = Index;
