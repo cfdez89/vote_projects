@@ -25,6 +25,7 @@ var SignUp = require('./components/signup/signup.react');
 var About = require('./components/about/about.react');
 var CompetitionDetail = require('./components/competitions/competitionDetail.react');
 var Projects = require('./components/projects/projects.react');
+var ProjectDetail = require('./components/projects/projectDetail.react');
 
 /** import modules */
 var CompetitionService = require('./services/competitionService');
@@ -40,8 +41,11 @@ ReactDOM.render((
             <Route path="/signup" component={SignUp}/>
             <Route path="/about" component={About}/>
             <Route path="/competitions/:id" component={CompetitionDetail}>
-                <Route path="/competitions/:id/projects" component={Projects}/>
+                <Route path="/competitions/:id/projects" component={Projects}>
+                   
+                </Route>
             </Route> 
+            <Route path="/competitions/:competitionId/projects/:id"  component={ProjectDetail}/>
             <Route path="*" component={NotFound}/>
         </Route>  
     </Router>
