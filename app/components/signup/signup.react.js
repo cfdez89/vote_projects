@@ -76,6 +76,7 @@ var SignUp = React.createClass({
             <div className="container-fluid">  
                 <div className="header small-12 medium-12 large-12 columns"> 
                     <h1>Sign Up</h1>
+                    <hr></hr>
                     <br></br>
                 </div>
                 <div>
