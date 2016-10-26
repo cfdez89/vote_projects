@@ -9,7 +9,8 @@
 var React = require('react');
 
 /** import bootstrap components module */
-var NavMenu = require('../layout/navMenu.react');
+var Navigation = require('../layout/navigation.react');
+var Footer = require('../layout/footer.react');
 
 
 /** main controller view component */
@@ -20,10 +21,11 @@ var VoteApp = React.createClass({
     render:function(){
         return (
             <div>
-                <NavMenu/>
+                <Navigation/>
                 <div className="content">
                     {this.props.children}
                 </div>
+                <Footer/>
             </div>
         )
     }
