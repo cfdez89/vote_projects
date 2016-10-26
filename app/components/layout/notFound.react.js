@@ -11,6 +11,9 @@ var React = require('react');
 /** import bootstrap component modules */
 var Label = require('react-bootstrap/lib/Label');
 
+/** import components */
+var Title = require('../common/title.react');
+
 
 /* not found component */
 var NotFound = React.createClass({
@@ -23,9 +26,8 @@ var NotFound = React.createClass({
         return (
             <div className="container-fluid">  
                 <div className="header small-12 medium-12 large-12 columns" style={this.setStyles()}> 
-                    <h1>Error <Label>404</Label></h1>
-                    <hr></hr>
-                    <h2>The page you are looking for can´t be found</h2>
+                    <Title title='Error 404'/>
+                    <h2>The page you are looking for can´t be <Label>found</Label></h2>
                 </div>
             </div>
         )
