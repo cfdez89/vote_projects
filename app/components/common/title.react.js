@@ -2,7 +2,7 @@
  * App for emit vote to projects in Fundatec
  * By Carlos Fernandez Jimenez
  * Using ES5, React, McFly(flux), Bootstrap
- * This module is for show main title page
+ * This module is for show main page title 
  */
 
 /** import libs dependencies */
