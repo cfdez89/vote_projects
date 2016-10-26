@@ -1,4 +1,4 @@
-# vote_projects
+# Vote
 
 Application to vote for projects depending on the type of selected competition, using React, McFly(flux) and Bootstrap.
 
