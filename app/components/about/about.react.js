@@ -23,9 +23,9 @@ var About = React.createClass({
         return (
             <div className="container-fluid">  
                 <div className="header small-12 medium-12 large-12 columns" style={this.setStyles()}> 
-                    <h1>About Vote app</h1>
+                    <h1>About Vote</h1>
                     <hr></hr>
-                    <h3>Developed by <Label>Carlos Fernandez Jimenez</Label></h3>
+                    <h3>Developed by <Label>Carlos Fernández Jiménez</Label></h3>
                     <h4>With React JS Tecnology</h4>
                     <h4>Version 1.0</h4>
                     <h4>2016</h4>
