@@ -17,7 +17,7 @@ var NavDropdown = require('react-bootstrap/lib/NavDropdown');
 var MenuItem = require('react-bootstrap/lib/MenuItem');
 
 /** navigation component */
-var NavMenu = React.createClass({
+var Navigation = React.createClass({
     getInitialState: function(){
         return {}
     },
@@ -45,4 +45,4 @@ var NavMenu = React.createClass({
     }
 });
 
-module.exports = NavMenu;
+module.exports = Navigation;
