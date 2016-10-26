@@ -10,4 +10,4 @@ Running the webpack server
 
 2) Once the webpack server is running, open the project in the shape of : 'http://localhost:8080'
 
-![Alt text](project.jpg?raw=true "Optional Title")
+![Alt text](project.png?raw=true "Optional Title")
