@@ -15,8 +15,9 @@ var Col = require('react-bootstrap/lib/Col');
 var Form = require('react-bootstrap/lib/Form');
 var FormGroup = require('react-bootstrap/lib/FormGroup');
 var Button = require('react-bootstrap/lib/Button');
-/** import components */
 
+/** import components */
+var Title = require('../common/title.react');
 /** import modules */
 var UserStore = require('../../stores/userStore');
 var UserActions = require('../../actions/userActions'); 
@@ -75,9 +76,7 @@ var SignUp = React.createClass({
         return (
             <div className="container-fluid">  
                 <div className="header small-12 medium-12 large-12 columns"> 
-                    <h1>Sign Up</h1>
-                    <hr></hr>
-                    <br></br>
+                    <Title title='Sign Up'/>
                 </div>
                 <div>
                     <Form horizontal>

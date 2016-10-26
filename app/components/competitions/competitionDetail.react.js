@@ -11,7 +11,7 @@ var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
 
 /** import components */
-//var CompetitionList = require('../competitions/competitionList.react');
+var Title = require('../common/title.react');
 
 /** import bootstrap component modules */
 var Label = require('react-bootstrap/lib/Label');
@@ -51,8 +51,7 @@ var CompetitionDetail = React.createClass({
         return (
             <div className="container-fluid">
                 <div style={this.setStyles()}>
-                    <h1>{this.state.name}</h1>
-                    <hr></hr>
+                    <Title title={this.state.name}/>
                     <h3>{this.state.description}</h3>
                     <h4>Limmit number of projects: <Label>{this.state.projects_limmit}</Label></h4>
                     <h4>Competition evaluation method: {this.state.evaluation_method}</h4>

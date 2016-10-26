@@ -19,6 +19,9 @@ var Link = ReactRouter.Link;
 var Label = require('react-bootstrap/lib/Label');
 var Image = require('react-bootstrap/lib/Image');
 
+/** import components */
+var Title = require('../common/title.react');
+
   var data ={
       id:1,
       competitionId:1,
@@ -57,9 +60,7 @@ var ProjectDetail = React.createClass({
         return (
             <div className="container-fluid">
                 <div style={this.setStyles()}>
-                    <h1>{this.state.name}</h1>
-                    <hr></hr>
-                    <br></br>
+                    <Title title={this.state.name}/>
                     <Image src={this.state.picture} alt="242x200" rounded />
                     <br></br>
                     <h3>{this.state.description}</h3>

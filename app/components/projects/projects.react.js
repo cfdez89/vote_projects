@@ -9,6 +9,7 @@
 var React = require('react');
 
 /** import components */
+var Title = require('../common/title.react');
 var ProjectList = require('../projects/projectList.react');
 
 /** import bootstrap component modules */
@@ -56,8 +57,7 @@ var Projects = React.createClass({
     render() {
         return (
             <div style={this.setStyles()}>
-                <h1>Projects</h1>
-                <hr></hr>
+                <Title title='Projects'/>
                 <ProjectList data={this.state.projects}/>
             </div>
         );

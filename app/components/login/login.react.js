@@ -14,8 +14,9 @@ var Form = require('react-bootstrap/lib/Form');
 var FormGroup = require('react-bootstrap/lib/FormGroup');
 var FormControl = require('react-bootstrap/lib/FormControl');
 var Button = require('react-bootstrap/lib/Button');
-/** import components */
 
+/** import components */
+var Title = require('../common/title.react');
 
 function getLoginState(){
     return {};//LoginStore.getLogin;
@@ -45,9 +46,7 @@ var LogIn = React.createClass({
         return (
             <div className="container-fluid">  
                 <div className="header small-12 medium-12 large-12 columns"> 
-                    <h1>Log In</h1>
-                    <hr></hr>
-                    <br></br>
+                    <Title title='Log In'/>
                 </div>
                 <div>
                     <Form horizontal>
