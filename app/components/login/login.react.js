@@ -46,6 +46,7 @@ var LogIn = React.createClass({
             <div className="container-fluid">  
                 <div className="header small-12 medium-12 large-12 columns"> 
                     <h1>Log In</h1>
+                    <hr></hr>
                     <br></br>
                 </div>
                 <div>
