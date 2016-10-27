@@ -20,7 +20,7 @@ var ProjectItem = require('../projects/ProjectItem.react');
 /* project list component */
 var ProjectList = React.createClass({
     renderProjectItem:function(project){
-        return <ProjectItem  key={project} index={project} data={this.props.data[project]} />
+        return <ProjectItem  key={project} index={project} competitionId={this.props.id} data={this.props.data[project]} />
     },
     render:function(){
         return (

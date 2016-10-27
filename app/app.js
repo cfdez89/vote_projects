@@ -41,9 +41,7 @@ ReactDOM.render((
             <Route path="/signup" component={SignUp}/>
             <Route path="/about" component={About}/>
             <Route path="/competitions/:id" component={CompetitionDetail}>
-                <Route path="/competitions/:id/projects" component={Projects}>
-                   
-                </Route>
+                <Route path="/competitions/:id/projects" component={Projects}/>
             </Route> 
             <Route path="/competitions/:competitionId/projects/:id"  component={ProjectDetail}/>
             <Route path="*" component={NotFound}/>

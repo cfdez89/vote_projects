@@ -36,10 +36,10 @@ var Competitions = React.createClass({
             competitions: getCompetitionsState()
         });
     },
-    handleSelect(selectedTab){
-      console.log(selectedTab);
+    handleSelect(tab){
+      console.log(tab);
         this.setState({
-            selectedTab
+            selectedTab:tab
         });
     },
     render() {

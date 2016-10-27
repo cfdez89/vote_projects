@@ -27,7 +27,7 @@ var ProjectItem = React.createClass({
                     <h3>{this.props.data.name}</h3>
                     <p>Description: {this.props.data.short_description}</p>
                     <span>
-                        <Link to={'/competitions/'+this.props.data.competitionId+'/projects/'+this.props.data.id}>View project</Link>
+                        <Link to={'/competitions/'+this.props.competitionId+'/projects/'+this.props.data.id}>View project</Link>
                     </span>  
                 </Thumbnail>
              </Col>
