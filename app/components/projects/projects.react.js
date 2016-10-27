@@ -20,28 +20,6 @@ var Tab = require('react-bootstrap/lib/Tab');
 var ProjectStore = require('../../stores/projectStore');
 var ProjectService = require('../../services/projectService');
 
-/** component global data */
-var _data = {
-  projects: [
-    {
-      id:1,
-      competitionId:1,
-      title: 'Electronic Competition',
-      description: 'Find and share new ideas related to electronics.',
-      start_date: '03/11/2016',
-      picture: '/projects/app/images/electronic.jpeg'
-    },
-    {
-      id:2,
-      competitionId:2,
-      title: 'Chemistry Competition',
-      description: 'Find and share new ideas related to chemistry.',
-      start_date: '12/12/2016',
-      picture: '/projects/app/images/chemistry.jpeg'
-    }
-  ]
-};
-
 function getProjectsState(){
   return ProjectStore.getProjects();
 }
